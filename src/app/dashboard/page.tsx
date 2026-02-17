@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { setAccessToken } from "@/src/context/tokenStore";
 import EditTaskModal from "@/src/components/tasks/EditTaskModal";
 import TaskCard, { Task } from "@/src/components/tasks/TaskCard";
-import { BarChart2, CheckSquare, LayoutDashboard } from "lucide-react";
 import Container from "@/src/components/container";
 
 export default function Dashboard() {
