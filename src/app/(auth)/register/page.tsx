@@ -26,7 +26,6 @@ export default function RegisterPage() {
         body: JSON.stringify({ name, email, password }),
       });
 
-      // After successful register → redirect to login
       router.push("/login");
 
     } catch (err: any) {
@@ -37,57 +36,110 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-md bg-white p-8 shadow-lg rounded-xl">
-        <h2 className="text-2xl font-bold mb-6 text-center">
-          Create Account
-        </h2>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-white to-gray-200 px-4">
+      
+      {/* Glass Card */}
+      <div className="w-full max-w-md backdrop-blur-xl bg-white/70 shadow-2xl rounded-3xl p-10 border border-gray-200">
+
+        {/* Header */}
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-extrabold text-primary tracking-tight">
+            Create Account
+          </h2>
+          <p className="text-black mt-2 text-sm font-medium">
+            Join us and start your journey today
+          </p>
+        </div>
 
         {error && (
-          <p className="text-red-500 text-sm mb-4">{error}</p>
+          <div className="bg-red-50 border border-red-200 text-red-600 text-sm p-3 rounded-xl text-center mb-6">
+            {error}
+          </div>
         )}
 
-        <form onSubmit={handleRegister} className="space-y-4">
-          <input
-            type="text"
-            placeholder="Full Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-black"
-          />
+        <form onSubmit={handleRegister} className="space-y-6">
 
-          <input
-            type="email"
-            placeholder="Email Address"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-black"
-          />
+          {/* Full Name */}
+          <div className="relative">
+            <input
+              type="text"
+              placeholder=" "
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="peer w-full px-4 pt-6 pb-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black transition-all bg-white"
+            />
+            <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all
+              peer-placeholder-shown:top-4
+              peer-placeholder-shown:text-base
+              peer-placeholder-shown:text-gray-400
+              peer-focus:top-2
+              peer-focus:text-sm
+              peer-focus:text-black">
+              Full Name
+            </label>
+          </div>
 
-          <input
-            type="password"
-            placeholder="Password (min 6 characters)"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            minLength={6}
-            className="w-full border p-2 rounded focus:outline-none focus:ring-2 focus:ring-black"
-          />
+          {/* Email */}
+          <div className="relative">
+            <input
+              type="email"
+              placeholder=" "
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="peer w-full px-4 pt-6 pb-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black transition-all bg-white"
+            />
+            <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all
+              peer-placeholder-shown:top-4
+              peer-placeholder-shown:text-base
+              peer-placeholder-shown:text-gray-400
+              peer-focus:top-2
+              peer-focus:text-sm
+              peer-focus:text-black">
+              Email Address
+            </label>
+          </div>
 
+          {/* Password */}
+          <div className="relative">
+            <input
+              type="password"
+              placeholder=" "
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              minLength={6}
+              className="peer w-full px-4 pt-6 pb-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-black transition-all bg-white"
+            />
+            <label className="absolute left-4 top-2 text-gray-500 text-sm transition-all
+              peer-placeholder-shown:top-4
+              peer-placeholder-shown:text-base
+              peer-placeholder-shown:text-gray-400
+              peer-focus:top-2
+              peer-focus:text-sm
+              peer-focus:text-black">
+              Password (min 6 characters)
+            </label>
+          </div>
+
+          {/* Button */}
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-black text-white py-2 rounded hover:opacity-90 transition"
+            className="w-full py-3 rounded-xl font-semibold text-white bg-primary hover:bg-secondary transition-all duration-300 shadow-lg hover:shadow-xl active:scale-[0.98] disabled:opacity-60"
           >
             {loading ? "Creating Account..." : "Register"}
           </button>
         </form>
 
-        <p className="text-sm text-center mt-6">
+        {/* Footer */}
+        <p className="text-sm text-center mt-8 text-gray-600">
           Already have an account?{" "}
-          <Link href="/login" className="text-black font-semibold">
+          <Link
+            href="/login"
+            className="text-black font-semibold hover:underline transition"
+          >
             Login
           </Link>
         </p>
