@@ -1,3 +1,4 @@
+import axios from "axios";
 import { getAccessToken, setAccessToken } from "../context/tokenStore";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
@@ -47,8 +48,9 @@ export const updateTask = async (
     title?: string;
     description?: string;
     status?: "pending" | "completed";
-  }
+  },
 ) => {
-  const res = await api.put(`/tasks/${id}`, data);
-  return res.data;
+  const res = await axios.put(`${API_URL}/tasks/${id}`, data, {
+    withCredentials: true,
+  });
 };
