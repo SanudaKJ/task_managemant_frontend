@@ -39,10 +39,8 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-white to-gray-200 px-4">
       
-      {/* Glass Card */}
       <div className="w-full max-w-md backdrop-blur-xl bg-white/70 shadow-2xl rounded-3xl p-10 border border-gray-200">
 
-        {/* Header */}
         <div className="text-center mb-8">
           <h2 className="text-3xl font-extrabold text-primary tracking-tight">
             Welcome Back
@@ -60,7 +58,6 @@ export default function LoginPage() {
             </div>
           )}
 
-          {/* Email */}
           <div className="relative">
             <input
               type="email"
@@ -81,7 +78,6 @@ export default function LoginPage() {
             </label>
           </div>
 
-          {/* Password */}
           <div className="relative">
             <input
               type="password"
@@ -102,7 +98,6 @@ export default function LoginPage() {
             </label>
           </div>
 
-          {/* Button */}
           <button
             type="submit"
             disabled={loading}
@@ -112,7 +107,6 @@ export default function LoginPage() {
           </button>
         </form>
 
-        {/* Footer */}
         <p className="text-sm text-center mt-8 text-gray-600">
           Don’t have an account?{" "}
           <Link

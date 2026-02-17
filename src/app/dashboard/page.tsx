@@ -21,7 +21,6 @@ export default function Dashboard() {
     try {
       const data = await apiFetch("/tasks");
 
-      // Convert backend boolean `completed` into frontend `status`
       const normalizedTasks: Task[] = data.map((task: any) => ({
         ...task,
         status: task.completed ? "completed" : "pending",
@@ -60,7 +59,6 @@ export default function Dashboard() {
   const handleToggleStatus = async (task: Task) => {
     const newStatus = task.status === "completed" ? "pending" : "completed";
 
-    // Optimistic update
     setTasks((prev) =>
       prev.map((t) =>
         t._id === task._id
@@ -101,9 +99,7 @@ export default function Dashboard() {
 
   return (
     <Container>
-      {/* Sidebar */}
 
-      {/* Main Content */}
       <div className="flex flex-col md:gap-8 gap-4 py-10">
         <div className="flex items-center justify-between ">
           <div className="md:text-5xl text-2xl font-bold items-center justify-center flex text-primary ">
@@ -118,7 +114,6 @@ export default function Dashboard() {
             </button>
           </div>
         </div>
-        {/* Stats Panel */}
         <div className="grid grid-cols-1 md:grid-cols-3 md:gap-16  gap-5 ">
           <div className="bg-blue-800/10 backdrop-blur-xl rounded-3xl p-6 flex flex-col items-center shadow-lg border border-blue-800">
             <p className=" text-lg ">Total Tasks</p>
@@ -134,7 +129,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Progress Bar */}
         <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-4 text-black flex flex-col">
           <p className=" mb-2 font-semibold">Completion Progress</p>
           <div className="w-full h-4 rounded-xl bg-gray-300 overflow-hidden">
@@ -145,7 +139,6 @@ export default function Dashboard() {
           </div>
         </div>
 
-        {/* Create Task */}
         <div className="bg-white/10 backdrop-blur-xl rounded-3xl p-6 shadow-lg border border-gray-700 space-y-4 text-black  flex flex-col text-primary ">
           <h2 className="text-xl font-semibold flex ">Add New Task</h2>
 
@@ -172,7 +165,6 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {/* Task List */}
         <div className="space-y-4">
           {tasks.length === 0 && (
             <div className="text-center text-black p-6 bg-white/10 backdrop-blur-md rounded-2xl shadow-lg border border-gray-700">
