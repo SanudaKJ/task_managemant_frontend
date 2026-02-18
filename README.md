@@ -44,7 +44,8 @@ https://task-managemant-backend.onrender.com
 
 ## ⚙️ Environment Variables
 
-Create a `.env.local` file in the root directory:
+Create a `.env.local` file in the root directory and add the NEXT_PUBLIC_API_URL
+
 
 
 ---
