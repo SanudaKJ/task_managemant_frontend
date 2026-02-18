@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/src/context/AuthContext";
 import { apiFetch } from "@/src/lib/api";
 import Link from "next/link";
 import { setAccessToken } from "@/src/context/tokenStore";
