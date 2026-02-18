@@ -15,7 +15,7 @@ This project is a **Task Management System** built with a modern full-stack Java
 - **Version Control:** GitHub
 
 ## Repositories
-
+- **Deployment:** https://task-managemant-frontend.vercel.app/
 - **Backend:** https://github.com/SanudaKJ/task_managemant_backend.git
 - **Frontend:** https://github.com/SanudaKJ/task_managemant_frontend.git
 
